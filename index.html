@@ -1,43 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drumza Privacy Policy</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 640px; margin: 0 auto; padding: 48px 24px; line-height: 1.6; color: #1a1c21; background: #fff; }
-  h1 { font-size: 1.6em; margin-bottom: 0; }
-  .effective { color: #666; font-size: 0.9em; margin-top: 4px; }
-  h2 { font-size: 1.1em; margin-top: 2em; }
-  a { color: #f2735f; }
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.55; max-width: 44rem; margin: 2rem auto; padding: 0 1.25rem; }
+  h1,h2,h3 { line-height: 1.25; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+  th, td { border: 1px solid #8884; padding: 0.45rem 0.55rem; text-align: left; vertical-align: top; }
+  blockquote { margin: 1rem 0; padding: 0.75rem 1rem; border-left: 4px solid #8888; background: #8881; }
+  code { font-size: 0.9em; }
+  hr { border: none; border-top: 1px solid #8885; margin: 1.5rem 0; }
 </style>
 </head>
 <body>
 <h1>Drumza Privacy Policy</h1>
-<p class="effective">Effective date: June 12, 2026</p>
-
-<p>Drumza is a drum notation app for iPad. This policy is short because we collect nothing.</p>
-
-<h2>What data Drumza collects</h2>
-<p><strong>None.</strong></p>
+<p><strong>Version:</strong> <code>2026-09-13</code></p>
+<p><strong>Effective date:</strong> 2026-09-13</p>
+<p><strong>Applies to:</strong> Drumza <strong>web</strong> (drumza.app / staging) and <strong>iOS</strong> builds that use Sign in with Apple or Google</p>
+<blockquote>
+<p><strong>Product draft — not counsel-certified.</strong> Not a claim of GDPR certification. A fuller privacy/GDPR program remains on the firm backlog.</p>
+<p>This version <strong>replaces</strong> the older iOS App Store text that said Drumza “collects nothing” / is fully offline with no account — that text is outdated once login ships.</p>
+</blockquote>
+<p>Contact: dimchik321@gmail.com</p>
+<hr>
+<h2>1. Who we are</h2>
+<p>Drumza is a drum notation product. On <strong>web</strong>, you can sign in and sync notepads in the cloud. On <strong>iOS Phase 1</strong>, you can sign in with Apple or Google; your charts remain primarily <strong>on-device</strong> until a later sync release.</p>
+<h2>2. Data we process</h2>
+<h3>Web</h3>
+<table><thead><tr><th>Category</th><th>Examples</th><th>Why</th></tr></thead><tbody>
+<tr><td>Account / auth</td><td>Email; Apple/Google identifiers if you use OAuth; auth session tokens</td><td>Sign-in, account security</td></tr>
+<tr><td>Profile</td><td>User id, role, created time</td><td>Account record</td></tr>
+<tr><td>Your content</td><td>Notepad titles/descriptions, measures, patterns, dynamics, sharing email lists</td><td>Provide editor + sync/share</td></tr>
+<tr><td>Technical</td><td>Standard host logs (IP, timestamps, request metadata)</td><td>Operate, secure, debug</td></tr>
+</tbody></table>
+<h3>iOS (Phase 1 — login)</h3>
+<table><thead><tr><th>Category</th><th>Examples</th><th>Why</th></tr></thead><tbody>
+<tr><td>Account / auth</td><td>Email (if the provider shares it); Apple/Google user identifiers; session tokens on device</td><td>Sign-in, stay signed in</td></tr>
+<tr><td>Avatar</td><td>Optional provider profile image URL, or a locally generated icon</td><td>Profile button UI</td></tr>
+<tr><td>Your charts (P1)</td><td>Notepads/measures stored locally (SwiftData)</td><td>Core app — **not** uploaded for multi-device sync in Phase 1</td></tr>
+</tbody></table>
+<p>We do <strong>not</strong> sell your personal data.</p>
+<p><strong>Analytics:</strong> No product analytics or telemetry SDK is enabled in the web app today. iOS Phase 1 does not add a separate product-analytics SDK. Hosts (e.g. Cloudflare, Supabase) may still collect standard operational logs.</p>
+<h2>3. Processors / subprocessors (high level)</h2>
 <ul>
-  <li>Drumza does not collect, transmit, store, or share any personal data.</li>
-  <li>All notepads, measures, and settings are stored locally on your device.</li>
-  <li>Drumza makes no network connections. It works fully offline.</li>
-  <li>Drumza contains no analytics, no advertising, no tracking, and no third-party SDKs.</li>
-  <li>Drumza does not require an account.</li>
+<li><strong>Supabase</strong> — authentication (and web database)</li>
 </ul>
-
-<h2>Data you create</h2>
-<p>Your drum notation data stays on your iPad. If you delete the app, that data is deleted with it. PDF files you export are created locally and shared only where you choose to send them via the iOS share sheet.</p>
-
-<h2>Children's privacy</h2>
-<p>Drumza is rated 4+ and collects no data from anyone, including children.</p>
-
-<h2>Changes to this policy</h2>
-<p>If a future version of Drumza adds features that involve data (for example, optional cloud sync), this policy will be updated before that version ships, and the App Store privacy label will be updated accordingly.</p>
-
-<h2>Contact</h2>
-<p>Questions: <a href="mailto:dimchik321@gmail.com">dimchik321@gmail.com</a></p>
+<ul>
+<li><strong>Cloudflare</strong> — web hosting / delivery</li>
+</ul>
+<ul>
+<li><strong>Apple / Google</strong> — if you choose their sign-in</li>
+</ul>
+<h2>4. Sharing (web)</h2>
+<p>If you add someone’s email to a notepad’s share list on web, that person may read the shared notepad. You control those lists.</p>
+<h2>5. Retention</h2>
+<p>We keep account data while your account is active. Web notepad data is kept while stored in our database. iOS local charts stay on your device until you delete them or uninstall (device OS rules apply). For deletion of account/auth data, email dimchik321@gmail.com — we handle requests in good faith. Automated self-serve delete may arrive later.</p>
+<h2>6. Children</h2>
+<p>The Service is not directed at children under 13 (or higher age required in your country). Do not use it if you are under the applicable age.</p>
+<h2>7. International transfers</h2>
+<p>Data may be processed in regions where our providers operate.</p>
+<h2>8. Your rights / choices</h2>
+<p>Depending on where you live, you may have rights to access, correct, or delete personal data. Contact us. On iOS, you can <strong>Sign out</strong> from the profile menu anytime. This policy does <strong>not</strong> claim full GDPR certification.</p>
+<h2>9. Android</h2>
+<p>Android may differ; separate notice when auth ships there.</p>
+<h2>10. Changes</h2>
+<p>We may update this Policy with a new version id. Material changes that affect the web Terms accept gate will be paired with a Terms version bump when required.</p>
+<h2>11. Contact</h2>
+<p>dimchik321@gmail.com</p>
 </body>
 </html>
