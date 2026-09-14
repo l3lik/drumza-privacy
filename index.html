@@ -17,24 +17,28 @@
 </head>
 <body>
 <h1>Drumza Privacy Policy</h1>
-<p><strong>Version:</strong> <code>2026-09-14</code></p>
-<p><strong>Effective date:</strong> 2026-09-14</p>
-<p><strong>Applies to:</strong> Drumza <strong>web</strong> (drumza.app / staging) and <strong>iOS</strong> builds that use Sign in with Apple or Google</p>
+<p><strong>Version:</strong> <code>2026-09-15</code></p>
+<p><strong>Effective date:</strong> 2026-09-15</p>
+<p><strong>Applies to:</strong> Drumza <strong>web</strong> (<code>drumza.app</code> / staging) and the <strong>iOS</strong> app <code>com.drumza.app</code> (builds that use Sign in with Apple or Google)</p>
 <blockquote>
 <p><strong>Product draft — not counsel-certified.</strong> Not a claim of GDPR certification. A fuller privacy/GDPR program remains on the firm backlog.</p>
-<p>This version <strong>replaces</strong> older text that said Drumza “collects nothing” / is fully offline with no account, and updates the prior note that iOS charts stay only on-device — <strong>signed-in pads now sync via cloud</strong>.</p>
+<p>This version updates <code>2026-09-14</code> for Apple-ship accuracy: Apple/Google sign-in on web + iOS (email magic-link / OTP <strong>removed</strong> as a product sign-in path), web Terms acceptance records, explicit no payments, <code>com.drumza.app</code>, and light ASC-hardening.</p>
 </blockquote>
 <p>Contact: dimchik321@gmail.com</p>
 <hr>
 <h2>1. Who we are</h2>
 <p>Drumza is a drum notation product. On <strong>web</strong> and <strong>iOS</strong>, when you are signed in, your notepads can <strong>sync across devices and platforms through our cloud backend (Supabase)</strong> under your account (staging and production environments as configured for that build).</p>
+
 <h2>2. Data we process</h2>
+<h3>Sign-in methods</h3>
+<p><strong>Web</strong> and <strong>iOS (<code>com.drumza.app</code>):</strong> Sign in with Apple and Sign in with Google. Email magic-link / email OTP is <strong>not</strong> offered as a product sign-in path.</p>
 <h3>Web</h3>
 <table><thead><tr><th>Category</th><th>Examples</th><th>Why</th></tr></thead><tbody>
-<tr><td>Account / auth</td><td>Email; Apple/Google identifiers if you use OAuth; auth session tokens</td><td>Sign-in, account security</td></tr>
+<tr><td>Account / auth</td><td>Email (if the provider shares it); Apple/Google identifiers; auth session tokens</td><td>Sign-in, account security</td></tr>
 <tr><td>Profile</td><td>User id, role, created time</td><td>Account record</td></tr>
+<tr><td>Terms acceptance</td><td>User id, terms version id, accepted-at timestamp</td><td>Record that you accepted Terms before using the service; re-prompt when version bumps</td></tr>
 <tr><td>Your content</td><td>Notepad titles/descriptions, measures, patterns, dynamics, sharing email lists</td><td>Provide editor + sync/share across devices</td></tr>
-<tr><td>Technical</td><td>Standard host logs (IP, timestamps, request metadata)</td><td>Operate, secure, debug</td></tr>
+<tr><td>Technical</td><td>Standard host logs (IP, timestamps, request metadata); essential/session cookies for auth</td><td>Operate, secure, debug</td></tr>
 </tbody></table>
 <h3>iOS (signed-in)</h3>
 <table><thead><tr><th>Category</th><th>Examples</th><th>Why</th></tr></thead><tbody>
@@ -44,29 +48,46 @@
 <tr><td>On-device copies</td><td>Local cache / SwiftData copies of your charts</td><td>Offline use and performance</td></tr>
 </tbody></table>
 <p>We do <strong>not</strong> sell your personal data.</p>
-<p><strong>Analytics:</strong> No product analytics or telemetry SDK is enabled in the web app today. iOS does not add a separate product-analytics SDK for this release. Hosts (e.g. Cloudflare, Supabase) may still collect standard operational logs.</p>
+<p><strong>Payments:</strong> No paid features, in-app purchases, or card processing at this version.</p>
+<p><strong>Analytics / crash:</strong> No product analytics or telemetry SDK is enabled in the web app today. iOS does not add a separate product-analytics or crash-reporting SDK for this release. Hosts (e.g. Cloudflare, Supabase) may still collect standard operational logs.</p>
+
 <h2>3. Processors / subprocessors (high level)</h2>
 <ul>
-<li><strong>Supabase</strong> — authentication and cloud database (including synced notepad content)</li>
+<li><strong>Supabase</strong> — authentication and cloud database (including synced notepad content and web Terms acceptance records)</li>
 <li><strong>Cloudflare</strong> — web hosting / delivery</li>
 <li><strong>Apple / Google</strong> — if you choose their sign-in</li>
 </ul>
-<h2>4. Sharing (web)</h2>
+<p>We do <strong>not</strong> use a transactional email provider (e.g. Resend) for product sign-in, because email magic-link / OTP is not a current sign-in path.</p>
+
+<h2>4. Cookies (web)</h2>
+<p>We use essential / session cookies and similar storage needed to keep you signed in and run the web app. We do not use advertising cookies. You can block cookies in your browser; some sign-in features may then stop working.</p>
+
+<h2>5. Sharing</h2>
 <p>If you add someone’s email to a notepad’s share list on web, that person may read the shared notepad. You control those lists.</p>
-<h2>5. Retention</h2>
-<p>We keep account data and synced notepad data while your account is active. On-device copies remain until you delete them or uninstall (device OS rules apply). For deletion of account/auth/cloud notepad data, email dimchik321@gmail.com — we handle requests in good faith. Automated self-serve delete may arrive later.</p>
-<h2>6. Children</h2>
-<p>The Service is not directed at children under 13 (or higher age required in your country). Do not use it if you are under the applicable age.</p>
-<h2>7. International transfers</h2>
+<p>We may also disclose information if required by law, to protect safety or enforce our Terms, or in connection with a merger, acquisition, or asset transfer (in which case we will take reasonable steps so the recipient honors this Policy).</p>
+
+<h2>6. Retention</h2>
+<p>We keep account data, synced notepad data, and web Terms acceptance records while your account is active (or as needed to show prior acceptance). On-device copies remain until you delete them or uninstall (device OS rules apply). For deletion of account/auth/cloud notepad data, email dimchik321@gmail.com — we handle requests in good faith. Automated self-serve delete may arrive later.</p>
+
+<h2>7. Security</h2>
+<p>We rely on industry-standard protections from our providers (including encrypted transport and access controls). No method of transmission or storage is 100% secure.</p>
+
+<h2>8. Children</h2>
+<p>The Service is not directed at children under 13 (or higher age required in your country). Do not use it if you are under the applicable age. If you believe a child provided us data, contact us and we will delete it in good faith.</p>
+
+<h2>9. International transfers</h2>
 <p>Data may be processed in regions where our providers operate.</p>
-<h2>8. Your rights / choices</h2>
-<p>Depending on where you live, you may have rights to access, correct, or delete personal data. Contact us. On iOS, you can <strong>Sign out</strong> from the profile menu anytime. This policy does <strong>not</strong> claim full GDPR certification.</p>
-<h2>9. Android</h2>
+
+<h2>10. Your rights / choices</h2>
+<p>Depending on where you live, you may have rights to access, correct, or delete personal data. Contact us. On iOS, you can <strong>Sign out</strong> from the profile menu anytime. This policy does <strong>not</strong> claim full GDPR certification. We do not sell personal information (including under CCPA “sale” as we understand it); California residents may contact us for requests.</p>
+
+<h2>11. Android</h2>
 <p>Android may differ; separate notice when auth/sync ships there.</p>
-<h2>10. Changes</h2>
+
+<h2>12. Changes</h2>
 <p>We may update this Policy with a new version id. Material changes that affect the web Terms accept gate will be paired with a Terms version bump when required.</p>
-<p>Related product change: pad sync across iOS and web for signed-in users (main tip <code>7223085</code> / PR #20).</p>
-<h2>11. Contact</h2>
+
+<h2>13. Contact</h2>
 <p>dimchik321@gmail.com</p>
 </body>
 </html>
